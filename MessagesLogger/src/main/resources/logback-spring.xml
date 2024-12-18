@@ -1,0 +1,20 @@
+<configuration>
+    <!-- Appender pour enregistrer les messages du BusListener -->
+    <appender name="BUS_MESSAGES" class="ch.qos.logback.core.FileAppender">
+        <file>logs/bus-messages.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Logger spécifique pour BusListener -->
+    <logger name="com.messages.logger.MessagesLogger.comm.controller.BusListener" level="INFO" additivity="false">
+        <appender-ref ref="BUS_MESSAGES" />
+    </logger>
+
+    <!-- Logger par défaut -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>
